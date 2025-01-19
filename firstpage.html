@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Computer Lab Management</title>
+<style>
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: red;
+  color: #333;
+}
+
+header {
+  background-image: url('arellano.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header img {
+  max-width: 100px;
+  margin-top: 10px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav li {
+  margin: 0 15px;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+section {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 5px;
+  max-width: 400px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background-color: red;
+  border: none;
+  color: black;
+  padding: 12px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: red;
+}
+
+footer {
+  margin-top: auto;
+  text-align: center;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+}
+a{
+  color:black;
+}
+</style>
+</head>
+<body>
+  <header>
+    <h1>Computer Lab Management System</h1>
+    <img src="logo3.jpg" alt="Logo"> </header>
+  
+
+  <section id="login-section">
+    <h2></h2>
+    <form id="loginForm">
+      <label for="lrn">LRN:</label>
+      <input type="number" id="lrn" ="lrn" required>
+    <button> <a href="register.html">Enter </a></button>
+    </form>
+  </section>
+
+  <script>
+    function handleLogin() {
+      const lrn = document.getElementById("lrn").value;
+      if (lrn) {
+        alert("Successfully logged in!"); 
+      } else {
+        alert("Please enter your LRN.");
+      }
+    }
+  </script>
+
+<footer>
+  
+  &copy; 2025 Computer Lab Management System
+</footer>
+
+<script>
+  alert(" welcome to computer Management laboratory system.");
+  alert(" please enter your lrn.")
+  
+</script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Computer Lab Management</title>
+<style>
+body {
+  font-family: 'Arial', sans-serif; 
+ background-color:red;
+  margin: 0; 
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: red; 
+  color: #333; 
+}
+
+header {
+  background-image: url('arellano.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white; 
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header img {
+  max-width: 100px; 
+  margin-top: 10px; 
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center; 
+}
+
+nav li {
+  margin: 0 15px; 
+  
+}
+
+nav a {
+  text-decoration: none;
+  color: white; 
+  font-weight: bold;
+  padding: 10px 15px; 
+  border-radius: 5px; 
+  transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.2); 
+}
+
+section {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 20px auto; 
+  border-radius: 5px;
+  max-width: 400px; 
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: white; 
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+}
+
+#labStatus p {
+  margin: 5px 0;
+}
+
+button {
+  background-color:red ;
+  color:black;
+  border: none;
+  padding: 12px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+
+
+
+#user-info {
+  text-align: center;
+  margin: 20px auto; 
+  max-width: 400px; 
+}
+
+#user-info a {
+  margin-left: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+footer {
+  margin-top: auto;
+  text-align: center;
+  padding: 10px;
+  background-color: #333;
+  color: white; 
+}
+</style>
+</head>
+<body>
+  <header>
+    <h1>Computer Lab Management System</h1>
+    <img src="logo1.jpg" alt="Logo" width="100"> </header>
+ 
+
+  <section id="login-section">
+    <form id="loginForm">
+      <label for="userName">Username:</label>
+      <input type="text" id="userName" name="Email">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password">
+      <button type="button" onclick="handleLogin()">Login</button>
+    </form>
+  </section>
+  <section id="user-info" style="display:none;">
+    <p>Welcome, <span id="userNameDisplay"></span> <a href="#" onclick="handleLogout()"></a></p> <br>
+    
+    <button>
+      <a href="register.html">logout</a>
+    </button>
+  </section>
+  <section id="labSelection" style="display:none;">
+    <label for="labSelect">Select Lab:</label>
+    <select id="labSelect">
+      <option value="labA">Lab A</option>
+       <option value="labB">Lab B</option>
+    </select>
+    <button type="button" onclick="showLabStatus()">Show Status</button>
+  </section>
+  <section id="labStatus"></section>
+
+<script>
+  
+  alert(" welcome to main server of computer management system.");
+const labData = {
+  "labA": [
+    "available", "available", "maintenance", "unavailable", "available",
+    "available", "available", "available", "available", "available",
+    "available", "available", "available", "unavailable", "available",
+    "maintenance", "maintenance", "unavailable", "available", "available",
+    "available", "unavailable", "unavailable", "unavailable", "maintenance",
+    "maintenance", "unavailable", "unavailable", "unavailable", "available",
+    "available", "available", "available", "available", "available"
+  ],
+  "labB": [
+    "available", "available", "maintenance", "unavailable", "available",
+    "available", "available", "available", "available", "available",
+    "available", "available", "available", "unavailable", "available",
+    "maintenance", "maintenance", "unavailable", "available", "available",
+    "available", "unavailable", "unavailable", "unavailable", "maintenance",
+    "maintenance", "unavailable", "unavailable", "unavailable", "maintenance",
+    "maintenance", "available", "available", "available", "available"
+  ]
+};
+
+function showLabStatus() {
+  const selectedLab = document.getElementById("labSelect").value;
+  const labStatusDiv = document.getElementById("labStatus");
+  labStatusDiv.innerHTML = "";
+
+  const pcStatuses = labData[selectedLab];
+  for (let i = 0; i < pcStatuses.length; i++) {
+    labStatusDiv.innerHTML += `<p>PC ${i + 1}: ${pcStatuses[i]}</p>`;
+  }
+}
+
+function handleLogin() {
+  const userName = document.getElementById("userName").value;
+  if (userName) {
+    document.getElementById("login-section").style.display = "none";
+    document.getElementById("user-info").style.display = "block";
+    document.getElementById("labSelection").style.display = "block";
+    document.getElementById("userNameDisplay").textContent = userName;
+  }
+}
+
+function handleLogout() {
+  document.getElementById("login-section").style.display = "block";
+  document.getElementById("user-info").style.display = "none";
+  document.getElementById("labSelection").style.display = "none";
+}
+</script>
+
+<footer>
+  &copy; 2025 Computer Lab Management System
+</footer>
+
+</body>
+</html>
